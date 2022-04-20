@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.dao.CharactorMapper">
+
+    <resultMap id="resultSet" type="com.ssm.pojo.Charactor">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="sex" property="sex"/>
+        <!--ofType对应属性类型泛型类型-->
+        <collection property="skill" ofType="com.ssm.pojo.Skill">
+            <id column="id" property="id"/>
+            <result column="first" property="first"/>
+            <result column="second" property="second"/>
+            <result column="third" property="third"/>
+        </collection>
+    </resultMap>
+
+    <select id="findAll" resultMap="resultSet">
+        select * from charactor,skill where charactor.id=skill.id  </select>
+
+
+</mapper>
