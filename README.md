@@ -1,0 +1,2 @@
+# SSMSelect
+SSM框架实现charactor表和skill表的1级联查询
